@@ -532,7 +532,7 @@ class NFL(callbacks.Plugin):
             return
         # parse html.
         soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES, fromEncoding='utf-8')
-        pname = soup.find('h1', attrs={'class':'player-name'}).getText().encode('utf-8')  # playername.
+        pname = soup.find('h1', attrs={'class':'player-name'}).getText().encode('utf-8').replace('Embed This','')  # playername.
         table = soup.find('table', attrs={'class':'playerTable'})
         # overview salary info.
         cursal = soup.find('p', attrs={'class':'currentinfo'})
